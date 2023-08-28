@@ -1,26 +1,16 @@
 import random
 
 class Item:
-    def __init__(self, comum, c_comum, p_comum, incomum, c_incomum, p_incomum, raro, c_raro, p_raro, epico, c_epico, p_epico, lendario, c_lendario, p_lendario):
-        self.comum = comum
-        self.c_comum = c_comum
-        self.p_comum = p_comum
+    def __init__(self, itemComum, itemIncomum, itemRaro, itemEpico, itemLendario):
+        self.itemComum = itemComum
         
-        self.incomum = incomum
-        self.c_incomum = c_incomum
-        self.p_incomum = p_incomum
+        self.itemIncomum = itemIncomum
         
-        self.raro = raro
-        self.c_raro = c_raro
-        self.p_raro = p_raro
+        self.itemRaro = itemRaro
         
-        self.epico = epico
-        self.c_epico = c_epico
-        self.p_epico = p_epico
+        self.itemEpico = itemEpico
         
-        self.lendario = lendario
-        self.c_lendario = c_lendario
-        self.p_lendario = p_lendario
+        self.itemLendario = itemLendario
         
         self.itens = []
 
@@ -121,55 +111,52 @@ class Item:
             cont+= 1
 
     def item_comum(self,quant):
+        print("-"*28)
         print("Itens comuns:")
-        self.item(len(self.comum), quant)
+        self.item(len(self.itemComum), quant)
         cont = 0
-        while cont < len(self.comum):
+        while cont < len(self.itemComum):
             if self.itens[cont] > 0:
-                self.p_comum[cont]= self.preco_item(self.p_comum[cont])
-                print("{} {} {} septins {}". format(self.itens[cont], self.comum[cont], self.p_comum[cont], self.c_comum[cont]))
+                print("{} {} {} moedas de cobre {}". format(self.itens[cont], self.itemComum[cont][0], self.itemComum[cont][1], self.preco_item(self.itemComum[cont][2])))
             cont += 1
 
     def item_incomum(self, quant):
         print("-"*28)
         print("Itens incomuns:")   
-        self.item(len(self.incomum), quant)
+        self.item(len(self.itemIncomum), quant)
         cont = 0
-        while cont < len(self.incomum):
+        while cont < len(self.itemIncomum):
             if self.itens[cont] > 0:
-                self.p_incomum[cont]= self.preco_item(self.p_incomum[cont])
-                print("{} {} {} septins {}". format(self.itens[cont], self.incomum[cont], self.p_incomum[cont], self.c_incomum[cont]))
+                print("{} {} {} moedas de cobre {}". format(self.itens[cont], self.itemIncomum[cont][0], self.itemIncomum[cont][1], self.preco_item(self.itemIncomum[cont][2])))
             cont += 1
 
     def item_raro(self, quant):
         print("-"*28)
         print("Itens raros:")
-        self.item(len(self.raro), quant)
+        self.item(len(self.itemRaro), quant)
         cont = 0
-        while cont < len(self.raro):
+        while cont < len(self.itemRaro):
             if self.itens[cont] > 0:
-                self.p_raro[cont]= self.preco_item(self.p_raro[cont])
-                print("{} {} {} septins {}". format(self.itens[cont], self.raro[cont], self.p_raro[cont], self.c_raro[cont]))
+                print("{} {} {} moedas de cobre {}". format(self.itens[cont], self.itemRaro[cont][0], self.itemRaro[cont][1], self.preco_item(self.itemRaro[cont][2])))
             cont += 1
 
     def item_epico(self, quant):
         print("-"*28)
-        self.item(len(self.epico), quant)
+        self.item(len(self.itemEpico), quant)
         print("Itens epicos:")
         cont = 0
-        while cont < len(self.epico):
+        while cont < len(self.itemEpico):
             if self.itens[cont] > 0:
-                self.p_epico[cont]= self.preco_item(self.p_epico[cont])
-                print("{} {} {} septins {}". format(self.itens[cont], self.epico[cont], self.p_epico[cont], self.c_epico[cont]))
+                print(cont)
+                print("{} {} {} moedas de cobre {}". format(self.itens[cont], self.itemEpico[cont][0], self.itemEpico[cont][1], self.preco_item(self.itemEpico[cont][2])))
             cont += 1
 
     def item_lendario(self, quant):
         print("-"*28)
-        self.item(len(self.lendario), quant)
+        self.item(len(self.itemLendario), quant)
         print("Itens lendarios:")
         cont = 0
-        while cont < len(self.lendario):
+        while cont < len(self.itemLendario):
             if self.itens[cont] > 0:
-                self.p_lendario[cont]= self.preco_item(self.p_lendario[cont])
-                print("{} {} {} septins {}". format(self.itens[cont], self.lendario[cont], self.p_lendario[cont], self.c_lendario[cont]))
+                print("{} {} {} moedas de cobre {}". format(self.itens[cont], self.itemLendario[cont][0], self.itemLendario[cont][1], self.preco_item(self.itemLendario[cont][2])))
             cont += 1    

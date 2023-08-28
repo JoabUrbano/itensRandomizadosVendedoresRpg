@@ -1,52 +1,98 @@
 from Itens import *
+
+itemComum = [
+    ('Adaga', '(d6 de dano)', 40),
+    ('Anel do firebolt', '(lança rais de fogo um número de vezes igual ao modificador de inteligência, minimo 1, e causa 10 de dano de fogo)', 145),
+    ('Anel da mobilidade', '(+1 de velocidade de movimento não é dobrado pela ação de dash)', 240),
+    ('Arco curto', '(d6 de dano)', 45),
+    ('Cota de malha', '(CA 16)', 185),
+    ('Encantamento da salamandra', '(d4 de dano de fogo por golpe corpo a corpo)', 60),
+    ('Encantamento pele de arvore', '(Absorve 10 de dano físico)', 115),
+    ('Escudo', '(+2 CA)', 82),
+    ('Faca de arremesso descartável', '(d8 cortante)', 16),
+    ('Ferramenta de esfolar', '+2 em testes de esfolar', 40),
+    ('Flecha comum', '' , 4),
+    ('Flecha de aço', '(+1 de dano)', 10),
+    ('Garra de escalada', '(+2 em testes de escalada)', 45),
+    ('Gazua', '(Em falha qubra)', 5),
+    ('Livro esfolador básico', '(Inteligência cd 16, se falar, tem que esperar uma semana para refazer)', 45),
+    ('Muda de roupas simples', '', 28),
+    ('Pedra de amolar', '(+1 de dano por um dia)', 55),
+    ('Poção de cura menor','(d4 + 1 cura)', 22),
+    ('Ração', 'Para um dia', 3),
+    ('Tocha', '', 7),
+    ('Veneno simples', '(d4 dano de veneno)', 35),
+]
+
+itemIncomum = [
+    ('Arco longo', '(d8 de dano)', 85),
+    ('Encantamento pele de pedra', '(Absorve 20 de dano físico)', 265),
+    ('Flecha temperada', '(+2 de dano)', 18),
+    ('Pedra da lua', '(Tocha eterna)', 70),
+    ('Poção da magia menor', '(Recupera 1 slot de primeiro nível)', 135),
+    ('Poção de cura', '(2d4+2 cura)', 48),
+    ('Rapieira', '(d8 de dano)', 85),
+    ('Veneno concentrado', '(2d4 dano de veneno)', 65)
+]
+
+itemRaro = [
+    ('Arco recurvo', '(1d8 + 1d4 de dano)', 165),
+    ('Armadura de placas', '(18 CA)', 2000),
+    ('Cajado de fogo', '(Todas as magias de fogo dão 1d6 de dano adicional)', 780),
+    ('Espada longa afiada', '(d8 + 1d4 de dano)', 195),
+    ('Flecha cintilante', '(+3 de dano de fogo)', 25),
+    ('Poção da magia', '(Recupera um slot de segundo nível)', 290),
+    ('Poção de cura maior', '(3d6+7)', 90),
+    ('Poção de descanso forçado', '(Benefícios de descanso curto em 1 minuto)', 215),
+    ('Túnica do mago', '(11 + dex CA, sempre que acertar um crítico em um ataque, como parte da mesma ação pode usar um truque ofensivo)', 1000)
+]
+
+itemEpico = [
+    ('Anel do guerreiro', '(+2 em dano corpo a corpo)', 680),
+    ('Arco da peste', '(d10 + 3d4 dano necrótico)', 1750),
+    ('Escudo ofensivo', '(Quando atacado pode usar reação para contra atacar d8 de dano)', 1350),
+    ('Flecha abençoada', '(+6 de dano radiante)', 58),
+    ('Poção de cura superior', '(4d6+10 de cura)', 130),
+    ('Poção da magia maior', '(Recupera 1 slot de terceiro nível)', 450),
+    ('Veneno virulento', '(4d6 de dano de veneno)', 170)
+]
+
+itemLendario = [
+    ('Cajado dos elementos', '(2d8 +10 de dano em qualquer ataque Elemental)', 5100),
+    ('Carapaça de Ebano', '(19 CA)', 4800),
+    ('Flecha de ébano', '(+8 dano de força)', 98),
+    ('Poção de cura lendária', '(6d6 +20 de cura)', 235)
+]
+
+vendedor = Item(itemComum, itemIncomum, itemRaro, itemEpico, itemLendario)
+
 print("Digite 1 para vendedor comum")
 print("Digite 2 para vendedor de lojinha")
 print("Digite 3 para vendedor de caravana")
 print("Digite 4 para vendedor de rede")
+print("Digite outra coisa para escolher manualmente a quantidade de itens")
 
 a = int(input("Digite o número do vendedor: "))
 print("")
 print("-"*28)
 
-comum = ['Poção de cura menor', 'Veneno simples','Flecha comum','Tocha','Ração','Flecha de aço','Adaga','Faca de arremesso descartável','Encantamento da salamandra', 'Encantamento pele de arvore', 'Anel do firebolt', 'Anel da mobilidade', 'Cota de malha','Escudo', 'Pedra de amolar', 'Garra de escalada', 'Muda de roupas simples', 'Armadilha de urso', 'Iscas', 'Mascaras', 'Livro esfolador básico', 'Livro do armadilheiro', 'Lockpick', 'Ferramenta de esfolar']
-comp_comum = ['(d4 +1 cura)', '(d4 dano de veneno)', '', '', '', '(+1 de dano)', '(d6 de dano)', '(d8 cortante)', '(d4 de dano adicional por golpe corpo a corpo 3 usos)', '(Absorve 10 de dano físico)', '(uma vez por dia lança firebolt d10)', '(+1 de velocidade de movimento não é dobrado pela ação de dash)', '(CA 16)', '(+2 CA)', '(+1 de dano)', '(+2 em testes de escalada)', '', '(cd 10 + dex, 2d6 de dano perfurante + 1d6 por turno)', '-2 percepção das feras', '(Resistência a gases)', '(Inteligência cd 16)', '(Inteligência cd 17)', '(Em falha qubra)', '']
-p_comum = [24, 31, 3, 7, 3, 6, 27, 40, 110, 95, 135, 150, 270, 55, 25, 40, 12, 60, 6, 80, 150, 170, 5, 40]
-
-incomum = ['Poção de cura','Veneno concentrado','Flecha temperada','Rapieira','Arco longo','Poção da magia menor','Encantamento pele de pedra', 'Pedra da lua']
-comp_incomum = ['(2d4+2 cura)', '(2d4 dano de veneno)', '(+2 de dano)', '(d8 de dano)', '(d8 de dano)', '(Recupera 1 slot de primeiro nível)', '(Absorve 20 de dano físico)', '(Tocha eterna)']
-p_incomum = [55, 72, 9, 65, 130, 170, 190, 110]
-
-raro = ['Arco recurvo','Poção de cura maior','Poção de descanso forçado','Flecha cintilante','Armadura de placas','Espada afiada','Poção da magia','Cajado de fogo','Túnica do mago']
-comp_raro = ['(1d8 + 1d4 de dano)', '(3d6+7)', '(Benefícios de descanso curto em 1 minuto)', '(+3 de dano de fogo)', '(18 CA)', '(d8 + 1 de dano)', '(Recupera um slot de segundo nível)', '(Todas as magias de fogo dão 1d6 de dano adicional)', '(11 + dex CA, sempre que acertar um crítico em um ataque, como parte da mesma ação pode usar um truque ofensivo)']
-p_raro = [210, 145, 190, 23, 1500, 130, 295, 780, 1450]
-
-epico = ['Poção de cura superior','Veneno virulento','Flecha élfica exótica','Arco da peste','Anel do guerreiro','Escudo ofensivo','Poção da magia maior']
-comp_epico = ['(4d6+10 de cura)', '(4d6 de dano de veneno)', '(+6 de dano radiante)', '(d10 + 3d4 dano necrótico)', '(+2 em dano corpo a corpo)', '(Quando atacado pode usar reação para contra atacar d8 de dano)', '(Recupera 1 slot de terceiro nível)']
-p_epico = [210, 340, 57, 1750, 680, 1350, 590]
-
-lendario = ['Poção de cura lendária','Flecha de ébano','Carapaça de Ebano','Cajado dos elementos']
-comp_lendario = ['(6d6 +20 de cura)', '(+8 dano de força)', '(19 CA)', '(2d8 +10 de dano em qualquer ataque Elemental)']
-p_lendario = [380, 98, 4500, 4300]
-
-vendedor = Item(comum, comp_comum, p_comum, incomum, comp_incomum, p_incomum, raro, comp_raro, p_raro, epico, comp_epico, p_epico, lendario, comp_lendario, p_lendario)
-
 if a == 1:
-    vendedor.item_comum(15)
+    vendedor.item_comum(16)
     vendedor.item_incomum(3)
 
 elif a == 2:
-    vendedor.item_comum(18)
-    vendedor.item_incomum(5)
+    vendedor.item_comum(20)
+    vendedor.item_incomum(6)
     vendedor.item_raro(1)
 
 elif a == 3:
-    vendedor.item_comum(18)
-    vendedor.item_incomum(9)
-    vendedor.item_raro(4)
+    vendedor.item_comum(22)
+    vendedor.item_incomum(10)
+    vendedor.item_raro(5)
     vendedor.item_epico(1)
 
 elif a == 4:
-    vendedor.item_comum(20)
+    vendedor.item_comum(25)
     vendedor.item_incomum(12)
     vendedor.item_raro(8)
     vendedor.item_epico(5)
