@@ -2,6 +2,15 @@ import random
 
 class GeradorItem:
     def __init__(self, itemComum, itemIncomum, itemRaro, itemEpico, itemLendario):
+        """
+        Metodo construtor da classe GeradorItem
+
+        :param: itemComum: [(string, string, int)]
+        :param: itemIncomum: [(string, string, int)]
+        :param: itemRaro: [(string, string, int)]
+        :param: itemEpico: [(string, string, int)]
+        :param: itemLendario: [(string, string, int)]
+        """
         self.itemComum = itemComum
         
         self.itemIncomum = itemIncomum
@@ -15,17 +24,38 @@ class GeradorItem:
         self.indiceItens = []
 
     def criarLista(self, quantidadeItensLista):
+        """
+        Cria uma lista com a quantidade de indices igual a quantidade de itens da lista de ranks de itens,
+        esse array vai armazenar a quantidade de itens selecionados pelo programa em um indice igual a do item 
+        selecionado no array do item
+
+        :param quantidadeItensLista: int
+        """
         cont = 0
         while cont < quantidadeItensLista:
             self.indiceItens.append(0)
             cont += 1
 
     def precoItem(self, preco):
+        """
+        Função para calcular um preço com uma variação baseado no preço base do item
+
+        :param preco: int
+
+        :return int precoTotal
+        """
         porcentagemVariacaoPreco = random.randrange(20, 31)
         precoTotal = random.randrange(1, (porcentagemVariacaoPreco * preco) // 100 + 2) + preco
         return precoTotal
         
-    def item(self, quantidadeItensLista, quantItensSelecionados):
+    def sorteiaItem(self, quantidadeItensLista, quantItensSelecionados):
+        """
+        Função responsavel por selecionar os itens aleatoriamente, e adiciona um no vetor indiceItens no
+        indice igual ao do item selecionado
+
+        :param quantidadeItensLista: int
+        :param quantItensSelecionados: int
+        """
         cont = 0
         self.indiceItens = []
         self.criarLista(quantidadeItensLista)
@@ -35,9 +65,15 @@ class GeradorItem:
             cont += 1
 
     def geradorItemComum(self, quantItensSelecionados):
+        """
+        Função que recebe o array de tuplas de itens comuns e chama as funções para fazer o sorteio e
+        calcular novos preços de itens, além de imprimir todos os itens selecionados
+
+        :param quantItensSelecionados: int
+        """
         print("-" * 28)
         print("Itens comuns:")
-        self.item(len(self.itemComum), quantItensSelecionados)
+        self.sorteiaItem(len(self.itemComum), quantItensSelecionados)
         cont = 0
         while cont < len(self.itemComum):
             if self.indiceItens[cont] > 0:
@@ -45,9 +81,15 @@ class GeradorItem:
             cont += 1
 
     def geradorItemIncomum(self, quantItensSelecionados):
+        """
+        Função que recebe o array de tuplas de itens incomuns e chama as funções para fazer o sorteio e
+        calcular novos preços de itens, além de imprimir todos os itens selecionados
+
+        :param quantItensSelecionados: int
+        """
         print("-" * 28)
         print("Itens incomuns:")   
-        self.item(len(self.itemIncomum), quantItensSelecionados)
+        self.sorteiaItem(len(self.itemIncomum), quantItensSelecionados)
         cont = 0
         while cont < len(self.itemIncomum):
             if self.indiceItens[cont] > 0:
@@ -55,9 +97,15 @@ class GeradorItem:
             cont += 1
 
     def geradorItemRaro(self, quantItensSelecionados):
+        """
+        Função que recebe o array de tuplas de itens raros e chama as funções para fazer o sorteio e
+        calcular novos preços de itens, além de imprimir todos os itens selecionados
+
+        :param quantItensSelecionados: int
+        """
         print("-" * 28)
         print("Itens raros:")
-        self.item(len(self.itemRaro), quantItensSelecionados)
+        self.sorteiaItem(len(self.itemRaro), quantItensSelecionados)
         cont = 0
         while cont < len(self.itemRaro):
             if self.indiceItens[cont] > 0:
@@ -65,8 +113,14 @@ class GeradorItem:
             cont += 1
 
     def geradorItemEpico(self, quantItensSelecionados):
+        """
+        Função que recebe o array de tuplas de itens epicos e chama as funções para fazer o sorteio e
+        calcular novos preços de itens, além de imprimir todos os itens selecionados
+
+        :param quantItensSelecionados: int
+        """
         print("-" * 28)
-        self.item(len(self.itemEpico), quantItensSelecionados)
+        self.sorteiaItem(len(self.itemEpico), quantItensSelecionados)
         print("Itens epicos:")
         cont = 0
         while cont < len(self.itemEpico):
@@ -75,8 +129,14 @@ class GeradorItem:
             cont += 1
 
     def geradorItemLendario(self, quantItensSelecionados):
+        """
+        Função que recebe o array de tuplas de itens lendarios e chama as funções para fazer o sorteio e
+        calcular novos preços de itens, além de imprimir todos os itens selecionados
+
+        :param quantItensSelecionados: int
+        """
         print("-" * 28)
-        self.item(len(self.itemLendario), quantItensSelecionados)
+        self.sorteiaItem(len(self.itemLendario), quantItensSelecionados)
         print("Itens lendarios:")
         cont = 0
         while cont < len(self.itemLendario):

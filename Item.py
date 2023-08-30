@@ -1,5 +1,8 @@
 class Item:
     def __init__(self):
+        """
+        Metodo construtor da classe Item
+        """
         self.itemComum = [
             ('Adaga', '(d6 de dano)', 40),
             ('Anel do firebolt', '(lança rais de fogo um número de vezes igual ao modificador de inteligência, minimo 1, e causa 10 de dano de fogo)', 145),
@@ -65,17 +68,41 @@ class Item:
         ]
     
     def getItemComum(self):
-        print(self.getItemComum)
+        """
+        Função para pegar o vetor de itens comuns
+
+        :return [] self.itemComum
+        """
         return self.itemComum
     
     def getItemIncomum(self):
+        """
+        Função para pegar o vetor de itens incomuns
+
+        :return [] self.itemIncomum
+        """
         return self.itemIncomum
     
     def getItemRaro(self):
+        """
+        Função para pegar o vetor de itens raros
+
+        :return [] self.itemRaro
+        """
         return self.itemRaro
     
     def getItemEpico(self):
+        """
+        Função para pegar o vetor de itens epicos
+
+        :return [] self.itemEpico
+        """
         return self.itemEpico
     
     def getItemLendario(self):
+        """
+        Função para pegar o vetor de itens lendarios
+
+        :return [] self.itemLendario
+        """
         return self.itemLendario
