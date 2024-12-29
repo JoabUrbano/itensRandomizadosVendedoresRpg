@@ -1,25 +1,15 @@
 import random
+from ConsultarItens import *
 
-class GeradorItem:
-    def __init__(self, itemComum, itemIncomum, itemRaro, itemEpico, itemLendario):
+class SortearItens:
+    def __init__(self):
         """
         Metodo construtor da classe GeradorItem
 
-        :param: itemComum: [(string, string, int)]
-        :param: itemIncomum: [(string, string, int)]
-        :param: itemRaro: [(string, string, int)]
-        :param: itemEpico: [(string, string, int)]
-        :param: itemLendario: [(string, string, int)]
         """
-        self.itemComum = itemComum
-        
-        self.itemIncomum = itemIncomum
-        
-        self.itemRaro = itemRaro
-        
-        self.itemEpico = itemEpico
-        
-        self.itemLendario = itemLendario
+
+        itens = ConsultarItens()
+        self.itemComum, self.itemIncomum, self.itemRaro, self.itemEpico, self.itemLendario = itens.retornarItens()
         
         self.indiceItens = []
 
@@ -64,7 +54,7 @@ class GeradorItem:
             self.indiceItens[indiceItem] += 1
             cont += 1
 
-    def geradorItemComum(self, quantItensSelecionados):
+    def sortearItemComum(self, quantItensSelecionados):
         """
         Função que recebe o array de tuplas de itens comuns e chama as funções para fazer o sorteio e
         calcular novos preços de itens, além de imprimir todos os itens selecionados
@@ -77,10 +67,10 @@ class GeradorItem:
         cont = 0
         while cont < len(self.itemComum):
             if self.indiceItens[cont] > 0:
-                print("{} {} {} moedas de cobre {}". format(self.indiceItens[cont], self.itemComum[cont][0], self.itemComum[cont][1], self.precoItem(self.itemComum[cont][2])))
+                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemComum[cont][0], self.itemComum[cont][1], self.precoItem(self.itemComum[cont][2])))
             cont += 1
 
-    def geradorItemIncomum(self, quantItensSelecionados):
+    def sortearItemIncomum(self, quantItensSelecionados):
         """
         Função que recebe o array de tuplas de itens incomuns e chama as funções para fazer o sorteio e
         calcular novos preços de itens, além de imprimir todos os itens selecionados
@@ -93,10 +83,10 @@ class GeradorItem:
         cont = 0
         while cont < len(self.itemIncomum):
             if self.indiceItens[cont] > 0:
-                print("{} {} {} moedas de cobre {}". format(self.indiceItens[cont], self.itemIncomum[cont][0], self.itemIncomum[cont][1], self.precoItem(self.itemIncomum[cont][2])))
+                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemIncomum[cont][0], self.itemIncomum[cont][1], self.precoItem(self.itemIncomum[cont][2])))
             cont += 1
 
-    def geradorItemRaro(self, quantItensSelecionados):
+    def sortearItemRaro(self, quantItensSelecionados):
         """
         Função que recebe o array de tuplas de itens raros e chama as funções para fazer o sorteio e
         calcular novos preços de itens, além de imprimir todos os itens selecionados
@@ -109,10 +99,10 @@ class GeradorItem:
         cont = 0
         while cont < len(self.itemRaro):
             if self.indiceItens[cont] > 0:
-                print("{} {} {} moedas de cobre {}". format(self.indiceItens[cont], self.itemRaro[cont][0], self.itemRaro[cont][1], self.precoItem(self.itemRaro[cont][2])))
+                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemRaro[cont][0], self.itemRaro[cont][1], self.precoItem(self.itemRaro[cont][2])))
             cont += 1
 
-    def geradorItemEpico(self, quantItensSelecionados):
+    def sortearItemEpico(self, quantItensSelecionados):
         """
         Função que recebe o array de tuplas de itens epicos e chama as funções para fazer o sorteio e
         calcular novos preços de itens, além de imprimir todos os itens selecionados
@@ -125,10 +115,10 @@ class GeradorItem:
         cont = 0
         while cont < len(self.itemEpico):
             if self.indiceItens[cont] > 0:
-                print("{} {} {} moedas de cobre {}". format(self.indiceItens[cont], self.itemEpico[cont][0], self.itemEpico[cont][1], self.precoItem(self.itemEpico[cont][2])))
+                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemEpico[cont][0], self.itemEpico[cont][1], self.precoItem(self.itemEpico[cont][2])))
             cont += 1
 
-    def geradorItemLendario(self, quantItensSelecionados):
+    def sortearItemLendario(self, quantItensSelecionados):
         """
         Função que recebe o array de tuplas de itens lendarios e chama as funções para fazer o sorteio e
         calcular novos preços de itens, além de imprimir todos os itens selecionados
@@ -141,5 +131,5 @@ class GeradorItem:
         cont = 0
         while cont < len(self.itemLendario):
             if self.indiceItens[cont] > 0:
-                print("{} {} {} moedas de cobre {}". format(self.indiceItens[cont], self.itemLendario[cont][0], self.itemLendario[cont][1], self.precoItem(self.itemLendario[cont][2])))
+                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemLendario[cont][0], self.itemLendario[cont][1], self.precoItem(self.itemLendario[cont][2])))
             cont += 1    
