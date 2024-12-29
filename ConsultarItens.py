@@ -12,6 +12,9 @@ class ConsultarItens:
         self.lerArquivoItens()
     
     def lerArquivoItens(self):
+        """
+        Metodo que ler o arquivo com os itens e divide nos arrays por raridade
+        """
         nome_arquivo = 'itens.txt'
         try:
             arquivo = open(nome_arquivo, 'r', encoding='utf-8')

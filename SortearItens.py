@@ -1,23 +1,18 @@
 import random
-from ConsultarItens import *
 
 class SortearItens:
     def __init__(self):
         """
-        Metodo construtor da classe GeradorItem
+        Metodo construtor
 
         """
 
-        itens = ConsultarItens()
-        self.itemComum, self.itemIncomum, self.itemRaro, self.itemEpico, self.itemLendario = itens.retornarItens()
-        
         self.indiceItens = []
 
     def criarLista(self, quantidadeItensLista):
         """
-        Cria uma lista com a quantidade de indices igual a quantidade de itens da lista de ranks de itens,
-        esse array vai armazenar a quantidade de itens selecionados pelo programa em um indice igual a do item 
-        selecionado no array do item
+        Coloca um número de elementos 0 no array igual a quantidade de itens do
+        array que será trabalhado
 
         :param quantidadeItensLista: int
         """
@@ -40,8 +35,8 @@ class SortearItens:
         
     def sorteiaItem(self, quantidadeItensLista, quantItensSelecionados):
         """
-        Função responsavel por selecionar os itens aleatoriamente, e adiciona um no vetor indiceItens no
-        indice igual ao do item selecionado
+        Selecionar os itens aleatoriamente, e marca no vetor de indices 
+        na posição referente ao item
 
         :param quantidadeItensLista: int
         :param quantItensSelecionados: int
@@ -53,83 +48,26 @@ class SortearItens:
             indiceItem = random.randrange(0, quantidadeItensLista)
             self.indiceItens[indiceItem] += 1
             cont += 1
-
-    def sortearItemComum(self, quantItensSelecionados):
+    
+    def imprimirItens(self, listItens):
         """
-        Função que recebe o array de tuplas de itens comuns e chama as funções para fazer o sorteio e
-        calcular novos preços de itens, além de imprimir todos os itens selecionados
+        Imprime os itens sortiados das respectivas listas
 
-        :param quantItensSelecionados: int
+        :param listItens: [(strinstr, str, int)]
         """
-        print("-" * 28)
-        print("Itens comuns:")
-        self.sorteiaItem(len(self.itemComum), quantItensSelecionados)
-        cont = 0
-        while cont < len(self.itemComum):
-            if self.indiceItens[cont] > 0:
-                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemComum[cont][0], self.itemComum[cont][1], self.precoItem(self.itemComum[cont][2])))
-            cont += 1
+        for i in range(len(listItens)):
+            if self.indiceItens[i] > 0:
+                preco = self.precoItem(listItens[i][2])
+                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[i], listItens[i][0], listItens[i][1], preco))
 
-    def sortearItemIncomum(self, quantItensSelecionados):
+    def sortearItem(self, quantItensSelecionados, list, raridadeItens):
         """
-        Função que recebe o array de tuplas de itens incomuns e chama as funções para fazer o sorteio e
-        calcular novos preços de itens, além de imprimir todos os itens selecionados
+        Chama os metodos para o sorteio de itens
 
         :param quantItensSelecionados: int
         """
-        print("-" * 28)
-        print("Itens incomuns:")   
-        self.sorteiaItem(len(self.itemIncomum), quantItensSelecionados)
-        cont = 0
-        while cont < len(self.itemIncomum):
-            if self.indiceItens[cont] > 0:
-                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemIncomum[cont][0], self.itemIncomum[cont][1], self.precoItem(self.itemIncomum[cont][2])))
-            cont += 1
-
-    def sortearItemRaro(self, quantItensSelecionados):
-        """
-        Função que recebe o array de tuplas de itens raros e chama as funções para fazer o sorteio e
-        calcular novos preços de itens, além de imprimir todos os itens selecionados
-
-        :param quantItensSelecionados: int
-        """
-        print("-" * 28)
-        print("Itens raros:")
-        self.sorteiaItem(len(self.itemRaro), quantItensSelecionados)
-        cont = 0
-        while cont < len(self.itemRaro):
-            if self.indiceItens[cont] > 0:
-                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemRaro[cont][0], self.itemRaro[cont][1], self.precoItem(self.itemRaro[cont][2])))
-            cont += 1
-
-    def sortearItemEpico(self, quantItensSelecionados):
-        """
-        Função que recebe o array de tuplas de itens epicos e chama as funções para fazer o sorteio e
-        calcular novos preços de itens, além de imprimir todos os itens selecionados
-
-        :param quantItensSelecionados: int
-        """
-        print("-" * 28)
-        self.sorteiaItem(len(self.itemEpico), quantItensSelecionados)
-        print("Itens epicos:")
-        cont = 0
-        while cont < len(self.itemEpico):
-            if self.indiceItens[cont] > 0:
-                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemEpico[cont][0], self.itemEpico[cont][1], self.precoItem(self.itemEpico[cont][2])))
-            cont += 1
-
-    def sortearItemLendario(self, quantItensSelecionados):
-        """
-        Função que recebe o array de tuplas de itens lendarios e chama as funções para fazer o sorteio e
-        calcular novos preços de itens, além de imprimir todos os itens selecionados
-
-        :param quantItensSelecionados: int
-        """
-        print("-" * 28)
-        self.sorteiaItem(len(self.itemLendario), quantItensSelecionados)
-        print("Itens lendarios:")
-        cont = 0
-        while cont < len(self.itemLendario):
-            if self.indiceItens[cont] > 0:
-                print("{} {}: {} e custa moedas de cobre {}". format(self.indiceItens[cont], self.itemLendario[cont][0], self.itemLendario[cont][1], self.precoItem(self.itemLendario[cont][2])))
-            cont += 1    
+        if quantItensSelecionados > 0:
+            print("-" * 28)
+            print("{}:".format(raridadeItens))
+            self.sorteiaItem(len(list), quantItensSelecionados)
+            self.imprimirItens(list)

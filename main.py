@@ -1,38 +1,39 @@
 from SortearItens import *
+from ConsultarItens import *
 
+itens = ConsultarItens()
+itensComuns, itensIncomuns, itensRaros, itensEpicos, itensLendarios = itens.retornarItens()
 vendedor = SortearItens()
 
-print("Digite 1 para vendedor comum")
-print("Digite 2 para vendedor de lojinha")
+print("Digite 1 para vendedor de praça")
+print("Digite 2 para vendedor lojista")
 print("Digite 3 para vendedor de caravana")
 print("Digite 4 para vendedor de rede")
 print("Digite outra coisa para escolher manualmente a quantidade de itens")
 
 numVendedor = int(input("Digite o número do vendedor: "))
 print("")
-print("-" * 28)
-
 if numVendedor == 1:
-    vendedor.sortearItemComum(16)
-    vendedor.sortearItemIncomum(3)
+    vendedor.sortearItem(20, itensComuns, "Itens Comuns")
+    vendedor.sortearItem(3, itensIncomuns, "Itens Incomuns")
 
 elif numVendedor == 2:
-    vendedor.sortearItemComum(20)
-    vendedor.sortearItemIncomum(6)
-    vendedor.sortearItemRaro(1)
+    vendedor.sortearItem(27, itensComuns, "Itens Comuns")
+    vendedor.sortearItem(8, itensIncomuns, "Itens Incomuns")
+    vendedor.sortearItem(1, itensRaros, "Itens Raros")
 
 elif numVendedor == 3:
-    vendedor.sortearItemComum(22)
-    vendedor.sortearItemIncomum(10)
-    vendedor.sortearItemRaro(5)
-    vendedor.sortearItemEpico(1)
+    vendedor.sortearItem(40, itensComuns, "Itens Comuns")
+    vendedor.sortearItem(12, itensIncomuns, "Itens Incomuns")
+    vendedor.sortearItem(5, itensRaros, "Itens Raros")
+    vendedor.sortearItem(1, itensEpicos, "Itens Epicos")
 
 elif numVendedor == 4:
-    vendedor.sortearItemComum(25)
-    vendedor.sortearItemIncomum(12)
-    vendedor.sortearItemRaro(8)
-    vendedor.sortearItemEpico(5)
-    vendedor.sortearItemLendario(1)
+    vendedor.sortearItem(55, itensComuns, "Itens Comuns")
+    vendedor.sortearItem(14, itensIncomuns, "Itens Incomuns")
+    vendedor.sortearItem(8, itensRaros, "Itens Raros")
+    vendedor.sortearItem(5, itensEpicos, "Itens Epicos")
+    vendedor.sortearItem(1, itensLendarios, "Itens Lendarios")
 
 else:
     quantItensComuns = int(input("Itens comuns: "))
@@ -40,8 +41,9 @@ else:
     quantItensRaros = int(input("Itens raros: "))
     quantItensEpicos = int(input("Itens epicos: "))
     quantItensLendarios = int(input("Itens lendarios: "))
-    vendedor.sortearItemComum(quantItensComuns)
-    vendedor.sortearItemIncomum(quantItensIncomuns)
-    vendedor.sortearItemRaro(quantItensRaros)
-    vendedor.sortearItemEpico(quantItensEpicos)
-    vendedor.sortearItemLendario(quantItensLendarios)
+
+    vendedor.sortearItem(quantItensComuns, itensComuns, "Itens Comuns")
+    vendedor.sortearItem(quantItensIncomuns, itensIncomuns, "Itens Incomuns")
+    vendedor.sortearItem(quantItensRaros, itensRaros, "Itens Raros")
+    vendedor.sortearItem(quantItensEpicos, itensEpicos, "Itens Epicos")
+    vendedor.sortearItem(quantItensLendarios, itensLendarios, "Itens Lendarios")
