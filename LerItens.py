@@ -1,4 +1,4 @@
-class ConsultarItens:
+class LerItens:
     def __init__(self):
         """
         Metodo construtor da classe Item

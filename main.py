@@ -1,7 +1,7 @@
 from SortearItens import *
-from ConsultarItens import *
+from LerItens import *
 
-itens = ConsultarItens()
+itens = LerItens()
 itensComuns, itensIncomuns, itensRaros, itensEpicos, itensLendarios = itens.retornarItens()
 vendedor = SortearItens()
 
